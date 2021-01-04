@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Finders Keepers</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <script
+      src="https://kit.fontawesome.com/a0dd9c5c0c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h1 class="display-4 text-center">
+        <i class="fas fa-search-dollar"></i>
+        Finders Keepers
+      </h1>
+      <form id="listing-form">
+        <div class="form-group">
+          <label for="title">City</label>
+          <input type="text" id="title" class="form-control" placeholder="Enter in a city from the GTA (case-sensitive)"/>
+          <p></p>
+          <label for="numListings">Number of listings</label>
+          <input type="text" id="numListings" class="form-control" placeholder="Enter the number of listings you would like to scrape"/>
+        </div>
+        <button
+          class="btn btn-primary btn-block"
+          onclick="submitCity()"
+        />Scrape listings</button>
+        <p><br></p>
+        <button
+          class="btn btn-primary btn-block"
+          onclick="deleteAllListings()"
+        />Clear All Listings (Beta)</button>
+      </form>
+      <table class="table table-striped mt-5">
+        <thead>
+          <tr>
+            <th>Listing</th>
+            <th>Location</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="listings"></tbody>
+      </table>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
