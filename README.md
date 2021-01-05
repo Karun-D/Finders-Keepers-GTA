@@ -30,11 +30,7 @@ Finders Keepers is a web application used to combine free item listings from bot
    ```JS
    npm install
    ```
-3. Install requirements
-   ```sh
-   pip install -r requirements.txt
-   ```
-4. Run html file with LiveServer add-on
+3. Run html file with LiveServer add-on
 
 <!-- USAGE EXAMPLES -->
 ## Test Program
