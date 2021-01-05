@@ -16,7 +16,7 @@ Finders Keepers is a web application used to combine free item listings from bot
 
 <!-- USAGE EXAMPLES -->
 ## Inspiration
-The following videos were used to learn the necessary technologies to build this application. Check them out:
+The following videos were used to inspire this project by teaching the necessary technologies to build the foundations of this application. Check them out:
 1. [Video #1](https://www.youtube.com/watch?v=7FjhF6Hy9gY)
 2. [Video #2](https://www.youtube.com/watch?v=JaMCxVWtW58&t=2188s)
 
