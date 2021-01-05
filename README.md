@@ -6,6 +6,9 @@
 
 Finders Keepers is a web application used to combine free item listings from both Kijiji and Craigslist. The app takes in the name of a city located in the GTA and the number of listing they would like to be scraped. This program combines both webscraping and full-stack Web Development 
 
+# Demo
+![](demo.gif)
+
 ### Built With
 
 * HTML/CSS

@@ -1,26 +1,3 @@
-//mysql --host=us-cdbr-east-02.cleardb.com --user=bdccc9d7020c79 --password=d49cf4a5 --reconnect heroku_b5198c496ea8f6b
-
-// CREATE TABLE IF NOT EXISTS `goldentrash` (
-//   id int(11) PRIMARY KEY AUTO_INCREMENT,
-//   title varchar(255),
-//   location text,
-//   date text,
-//   link text
-// );
-
-
-// NEW DATABASE
-// CLEARDB_DATABASE_URL: mysql://bedae71d7e6892:dbd83021@us-cdbr-east-02.cleardb.com/heroku_5228725b72417b7?reconnect=true
-// heroku config:set DATABASE_URL='mysql://bedae71d7e6892:dbd83021@us-cdbr-east-02.cleardb.com/heroku_5228725b72417b7?reconnect=true'
-
-// username - bedae71d7e6892
-// password - dbd83021
-// host - us-cdbr-east-02.cleardb.com
-// db - heroku_5228725b72417b7
-
-
-// mysql --host=us-cdbr-east-02.cleardb.com --user=bedae71d7e6892 --password=dbd83021 --reconnect heroku_5228725b72417b7
-
 const typeorm = require('typeorm');
 
 // Listing Object
@@ -60,19 +37,19 @@ const ListingSchema = new EntitySchema({
     }
 });
 
-/////////////////////////////////////////////////////////////
-// REPLACE CONNECTION VARIABLES WITH ENVIRONMENT VARIABLES //
-/////////////////////////////////////////////////////////////
+////////////////////////////////////
+// Add MYSQL database information //
+////////////////////////////////////
 
 // async function getConnection() {
 //     try {
 //         return await typeorm.createConnection({
 //             type: "mysql",
-//             host: "us-cdbr-east-02.cleardb.com",
+//             host: "localhost",
 //             port: 3306,
-//             username: "bedae71d7e6892",
-//             password: "dbd83021",
-//             database: "heroku_5228725b72417b7",
+//             username: "root",
+//             password: ,
+//             database: ,
 //             synchronize: true,
 //             logging: false,
 //             entities: [
@@ -80,40 +57,16 @@ const ListingSchema = new EntitySchema({
 //             ]
 //         })
 //     } catch (err) {
-//         console.log(err.name);
 //         // If AlreadyHasActiveConnectionError occurs, return already existent connection
 //         if (err.name === "AlreadyHasActiveConnectionError") {
 //           const existentConn = typeorm.getConnectionManager().get("default");
 //           return existentConn;
 //         } 
 //     }
+    
 // }
 
-async function getConnection() {
-    try {
-        return await typeorm.createConnection({
-            type: "mysql",
-            host: "localhost",
-            port: 3306,
-            username: "root",
-            password: "b+cP3?8zG7",
-            database: "goldentrash",
-            synchronize: true,
-            logging: false,
-            entities: [
-                ListingSchema
-            ]
-        })
-    } catch (err) {
-        // If AlreadyHasActiveConnectionError occurs, return already existent connection
-        if (err.name === "AlreadyHasActiveConnectionError") {
-          const existentConn = typeorm.getConnectionManager().get("default");
-          return existentConn;
-        } 
-    }
-    
-}
-
+// Get all listings from database
 async function getAllListings() {
     const connection = await getConnection();
     const listingRepo = connection.getRepository(Listing);
@@ -122,6 +75,7 @@ async function getAllListings() {
     return listings;
 }
 
+// Insert listing from database
 async function insertListing(kijijiData, craigsListData) {
     const connection = await getConnection();                           // Create new connection to DB
     const listingRepo = connection.getRepository(Listing);              // Get DB repo using connection variable
@@ -157,6 +111,7 @@ async function insertListing(kijijiData, craigsListData) {
     return allListings;                                                 // Return array of newly scraped listings
 }
 
+// Remove listing from database
 async function removeListings(listingIDs) {
     const connection = await getConnection();                           // Create new connection to DB
     const listingRepo = connection.getRepository(Listing);              // Get DB repo using connection variable
