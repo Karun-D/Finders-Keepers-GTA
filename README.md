@@ -14,6 +14,12 @@ Finders Keepers is a web application used to combine free item listings from bot
 * MySQL (using TypeORM)
 * Puppeteer
 
+<!-- USAGE EXAMPLES -->
+## Inspiration
+The following videos were used to learn the necessary technologies to build this application. Check them out:
+1. [Video #1](https://www.youtube.com/watch?v=7FjhF6Hy9gY)
+2. [Video #2](https://www.youtube.com/watch?v=JaMCxVWtW58&t=2188s)
+
 ### Prerequisites
 
 1. [Node.js must be installed](https://nodejs.org/en/download/)
